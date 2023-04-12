@@ -1,0 +1,337 @@
+// Colours
+// Brand
+$espn-red: #ff2416;
+
+$bg: #181818;
+$content-bg: #fff;
+$bg-text: #252525;
+$text: #fff;
+
+$bg-blue: #292d4a;
+$bg-red: $espn-red;
+
+$accent: $espn-red;
+$text-accent: #ff352c;
+
+$grey: #a3aaad;
+$dark-grey: #2e2e2e;
+
+$border-grey: #f5f5f5;
+
+// Animations
+$easing: cubic-bezier(.8,0,.2,1);
+.animation {
+    animation-fill-mode: both;
+    animation-duration: 1.25s;
+    animation-play-state: running;
+    animation-timing-function: $easing;
+}
+@keyframes scalewidth-zero-half {
+    0% { transform: scaleX(0) }
+    100% { transform: scaleX(0.5) }
+}
+@keyframes slide-up {
+    0% { transform: translateY(100vh) }
+    100% { transform: translateY(0vh) }
+}
+@keyframes slide-up-text-offset {
+    0% { transform: translateY(112.5%) }
+    100% { transform: translateY(12.5%) }
+}
+@keyframes fade-in {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}
+@keyframes slide-up-fade-in {
+    0% {
+        transform: translateY(3.5vh);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// Base
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+    background-color: $bg;
+    color: $text;
+    letter-spacing: 0.1em;
+    font-family: Raleway;
+    overflow-x: hidden;
+}
+a {
+    color: $text-accent;
+    text-decoration: none;
+}
+
+// Helpers
+.allcaps {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+.separator {
+    display: inline-block;
+    vertical-align: middle;
+    width: 2em;
+    height: 0.05em;
+    background-color: $text;
+    opacity: 0.15;
+    margin: 0 0.5em;
+}
+.underline-bar {
+    content: '';
+    position: absolute;
+    bottom: -1em;
+    left: 0;
+    width: 100%;
+    height: 0.075em;
+    background-color: $accent;
+}
+
+// Icons
+.icon-dropdown {
+    border: 0.35em solid transparent;
+    border-top: 0.35em solid $text;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 0.5em;
+}
+
+/*------------------------------
+  Main
+------------------------------*/
+header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 85em;
+    margin: 0 auto;
+    padding: 1em;
+    
+    a {
+        color: $text;
+    }
+}
+.logo {
+    height: 1.3em;
+    width: 5.2em;
+    
+    svg {
+        transform: scale(0.15);
+        transform-origin: top left;
+    }
+    path {
+        fill: $espn-red;
+    }
+}
+.share {
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    
+    a {
+        padding: 0.5em;
+        vertical-align: middle;
+    }
+    .twitter {
+        font-size: 1.1em;
+    }
+}
+
+main {
+    position: relative;
+}
+.underlay-text {
+    position: absolute;
+    left: 50%;
+    top: 0.75rem;
+    @extend .allcaps;
+    font-family: Teko;
+    font-size: 20vw;
+    font-weight: 800;
+    letter-spacing: 0;
+    white-space: nowrap;
+    opacity: 0.05;
+    transform: translateX(-50%) translateY(-22.5%) scaleX(0.75) scaleY(1.1);
+    pointer-events: none;
+    overflow: hidden;
+    line-height: 0.65;
+    
+    span {
+        display: inline-block;
+        position: relative;
+        animation-name: slide-up-text-offset;
+        animation-delay: 0.4s;
+        @extend .animation;
+    }
+}
+
+.page-container {
+    font-size: 1rem;
+    max-width: 75em;
+    margin: 6em auto;
+}
+.main-title {
+    position: relative;
+    display: inline-block;
+    font-size: 1.35em;
+    @extend .allcaps;
+    margin-bottom: 3.5em;
+    animation-name: slide-up;
+    @extend .animation;
+    
+    &::after {
+        @extend .underline-bar;
+    }
+}
+.content {
+    position: relative;
+    background-color: $content-bg;
+    color: $dark-grey;
+    animation-name: slide-up;
+    animation-delay: 0.15s;
+    @extend .animation;
+}
+
+.grid {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    width: 25%;
+    font-size: 1rem;
+    flex-flow: column;
+    justify-content: center;
+}
+.card-team {
+    padding: 4em;
+    align-items: center;
+    position: relative;
+    border: 1px solid $border-grey;
+    cursor: pointer;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.2em;
+        background-color: $accent;
+        transform: scaleX(0.5);
+        animation-name: scalewidth-zero-half;
+        @extend .animation;
+    }
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background-color: $bg-blue;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0 0.5em 3em rgba(16,16,30,0.4);
+        opacity: 0;
+        transition: 1s $easing;
+        z-index: 1;
+    }
+    &__logo {
+        position: relative;
+        color: $grey;
+        margin: 1em 1em 4em;
+        transition: 1s $easing;
+        z-index: 1;
+        animation-name: slide-up-fade-in;
+        animation-delay: 1s;
+        @extend .animation;
+        animation-timing-function: ease-in-out;
+        animation-duration: 0.7s;
+        
+        .fas {
+            font-size: 3em;
+        }
+    }
+    &__number {
+        position: relative;
+        display: inline-block;
+        font-family: Teko;
+        color: $text-accent;
+        font-size: 2em;
+        margin-bottom: 1em;
+        transform: scaleX(0.7);
+        font-weight: 600;
+        transition: 1s $easing;
+        z-index: 1;
+        animation-name: slide-up-fade-in;
+        animation-delay: 1s;
+        @extend .animation;
+        animation-timing-function: ease-in-out;
+        animation-duration: 0.7s;
+        
+        &::after {
+            @extend .underline-bar;
+            background-color: #D6DDE0;
+            height: 0.05em;
+            width: 75%;
+            left: 12.5%;
+            bottom: -0.2em;
+        }
+    }
+    &__name {
+        position: relative;
+        @extend .allcaps;
+        font-size: 1.5em;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        color: $dark-grey;
+        transition: 1s $easing;
+        z-index: 1;
+        animation-name: slide-up-fade-in;
+        animation-delay: 1s;
+        @extend .animation;
+        animation-timing-function: ease-in-out;
+        animation-duration: 0.7s;
+    }
+    
+    &:hover {
+        .card-team__bg {
+            opacity: 1;
+            transform: scale3d(1.1, 1.1, 1.1);
+        }
+        .card-team__logo,
+        .card-team__number,
+        .card-team__name {
+            color: $text;
+        }
+    }
+}
+
+@for $i from 1 through 8 {
+    .card-team:nth-child(#{$i}) {
+        $n: 0.9 + ($i / 8);
+        $a: 1.1 + ($i / 7);
+        
+        .card-team__logo,
+        .card-team__number, 
+        .card-team__name {
+            animation-delay: #{$n}s;
+        }
+        &::after {
+            animation-delay: #{$a}s;
+        }
+    }
+}
+[]
