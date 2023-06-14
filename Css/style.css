@@ -14,7 +14,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: "poppins", sans-serif;
-  text-transform: capitalize  ;
+  text-transform: capitalize;
 }
 /* Start Font */
 
@@ -174,7 +174,6 @@ body {
 
 /* end navbar */
 /*********************************/
-
 /* start hero */
 .hero {
   min-height: 100vh;
@@ -214,6 +213,8 @@ body {
 }
 
 /* end hero */
+/*********************************/
+
 
 .about {
   padding: 50px;
@@ -264,7 +265,7 @@ body {
   color: #777;
 }
 
-/* /////////////////////// */
+/*********************************/
 
 .special-headings {
   color: #0a6276;
@@ -355,7 +356,7 @@ body {
     display: none;
   }
 }
-
+/*********************************/
 /* start cards */
 
 .Al-Haleme {
@@ -386,12 +387,12 @@ body {
   flex-direction: column;
   transition: 0.3s ease-in-out;
 }
-.aaaa{
+.aaaa {
   display: flex;
   justify-content: center;
   background-color: #e5f1ef;
 }
-.member-card{
+.member-card {
   position: relative;
   max-width: 250px;
   height: 100px;
@@ -402,7 +403,7 @@ body {
   flex-direction: column;
   transition: 0.3s ease-in-out;
 }
-.member-card .imgbox{
+.member-card .imgbox {
   position: relative;
   width: 210px;
   height: 260px;
@@ -420,13 +421,13 @@ body {
   margin-top: 50px;
 }
 .member-card ul {
-  list-style-type:none ;
+  list-style-type: none;
 }
 
-.member-card:hover{
+.member-card:hover {
   height: 420px;
 }
-.member-card .textbox{
+.member-card .textbox {
   position: relative;
   margin-top: -140px;
   padding: 10px 15px;
@@ -436,7 +437,7 @@ body {
   opacity: 0;
   transition: 0.3s ease-in-out;
 }
-.member-card:hover .textbox{
+.member-card:hover .textbox {
   visibility: visible;
   opacity: 1;
   margin-top: -40px;
@@ -454,8 +455,6 @@ body {
   background: #fff;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
-
-
 
 .imgbox P {
   position: relative;
@@ -502,186 +501,34 @@ body {
   margin-top: -40px;
 }
 
+/* end cards */
 /*********************************/
-/*********************************/
-footer .container {
-  width: 100%;
-  height: 11rem;
-  background-color: #176e7d;
-  position: relative;
+/* start Footer */
+
+footer .container #My-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 0 0;
 }
 
-footer #My-info {
-  width: 100%;
-  height: 10rem;
+footer .container #My-info div {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
-
-footer #My-info .Mail {
-  position: absolute;
-  top: 20%;
-  left: 40%;
-}
-
-footer #My-info .Mail img,
-footer #My-info .Phone img {
-  width: 1.5rem;
-  margin-right: 0.5rem;
-}
-
-@media (max-width: 586px) {
-  footer #My-info .Mail img,
-  footer #My-info .Phone img {
-    width: 1.5rem;
-    margin-right: 0.5rem;
-    display: none;
-  }
-}
-
-footer #My-info .Mail a,
-footer #My-info .Phone a {
-  color: white;
+footer .container #My-info div a {
   text-decoration: none;
-}
-
-@media (max-width: 586px) {
-  footer #My-info .Mail a,
-  footer #My-info .Phone a {
-    color: white;
-    text-decoration: none;
-    position: relative;
-    z-index: 5;
-    left: 3rem;
-  }
-}
-
-footer #My-info .Phone {
-  position: absolute;
-  top: 40%;
-  left: 40%;
-}
-
-footer #My-info .COPY-R {
-  position: absolute;
-  top: 78%;
-  left: 32%;
   color: white;
+  margin-left: 0.5rem;
+}
+footer .container #My-info .Phone{
+  margin-bottom: 2rem;
 }
 
-@media (max-width: 586px) {
-  footer #My-info .COPY-R {
-    position: absolute;
-    top: 87%;
-    left: 24%;
-    color: white;
-    font-size: 10px;
-    z-index: 6;
-  }
-}
-
-footer #My-info .COPY-R p {
-  display: inline;
-}
-
-footer #My-info .COPY-R #My-Name {
-  display: inline;
+footer .container #My-info .COPY-R {
   color: white;
+  font-size: 10px;
 }
 
-footer #My-info .COPY-R img {
-  width: 1rem;
-}
-
-
-
-.REC {
-  position: absolute;
-  width: 10rem;
-  height: 4rem;
-  top: 2%;
-  background-color: #176e7d;
-  transform: matrix(0.74, 0.67, -0.74, 0.67, 0, 0);
-  border-radius: 50px 30px 0 0;
-  border-top: 5px solid var(--Sesctionbg);
-}
-
-.REC div p {
-  position: absolute;
-  font-size: 1rem;
-  font-weight: 800;
-  rotate: -44deg;
-  padding: 0;
-  margin: 0;
-  left: 0rem;
-  bottom: 0rem;
-  color: var(--main-color);
-}
-
-@media (max-width: 768px) {
-  footer .container-fluid {
-    width: 100%;
-    height: 10rem;
-    background-color: var(--main-header-color);
-  }
-  .REC {
-    position: absolute;
-    width: 11rem;
-    height: 6rem;
-    background-color: var(--main-header-color);
-    transform: matrix(0.74, 0.67, -0.74, 0.67, 0, 0);
-    border-radius: 50px 30px 0 0;
-  }
-  .REC div p {
-    position: absolute;
-    font-size: 1.2rem;
-    font-weight: 800;
-    rotate: -44deg;
-    padding: 0;
-    margin: 0;
-    left: -1rem;
-    bottom: 2rem;
-  }
-}
-
-#Contact .My-Email {
-  position: absolute;
-}
-
-#Linkedin_icon {
-  rotate: -45deg;
-  position: absolute;
-  width: 1.5rem;
-  top: 5rem;
-  left: 3rem;
-}
-
-#github_icon {
-  rotate: -45deg;
-  position: absolute;
-  width: 1.5rem;
-  top: 3rem;
-  left: 5rem;
-}
-
-#facebook_icon {
-  rotate: -45deg;
-  position: absolute;
-  width: 1.5rem;
-  top: 1rem;
-  left: 7rem;
-}
-
-.mail-icon {
-  left: 50%;
-  top: 385%;
-}
-
-#Contact .mail-icon img {
-  width: 1.7rem;
-  margin-left: -3rem;
-}
-#Contact .mail-icon a {
-  color: white;
-  text-decoration: none;
-}
-
-/* End Footer */
+/* end Footer */
